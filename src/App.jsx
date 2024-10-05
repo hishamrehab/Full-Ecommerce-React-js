@@ -1,12 +1,14 @@
-
-import './App.css'
+import { Footer, Header } from './components'
+import { AllRoutes } from './routes/AllRoutes'
 
 function App() {
 
   return (
-    <>
-      <h1>Hello</h1>
-    </>
+    <div className='App'>
+      <Header />
+      <AllRoutes />
+      <Footer />
+    </div>
   )
 }
 
