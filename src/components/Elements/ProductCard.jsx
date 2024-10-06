@@ -1,5 +1,7 @@
+import { useState } from "react"
 import { Link } from "react-router-dom"
-export const ProductCard = () => {
+export const ProductCard = ({ product }) => {
+    const { id, name, overview, long_description, price, poster, image_local, rating, in_stock, size, best_seller } = product
     return (
         <div className="m-3 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
             <Link to="/" className="relative" >
