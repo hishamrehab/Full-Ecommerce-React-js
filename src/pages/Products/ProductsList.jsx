@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
-import { ProductCard } from "../../components/Elements/ProductCard"
 import { FilterBar } from "./components/FilterBar"
+import { ProductCard } from "../../components";
 export const ProductsList = () => {
     const [show, setShow] = useState(false);
     const [products, setProducts] = useState([]);
