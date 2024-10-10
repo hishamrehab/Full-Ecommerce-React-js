@@ -4,7 +4,19 @@ import { CiSettings } from "react-icons/ci";
 import { FaSearch } from "react-icons/fa";
 import { IoCart } from "react-icons/io5";
 import { RxAvatar } from "react-icons/rx";
+import { useEffect, useState } from "react";
 export const Header = () => {
+    const [darkMode, setDarkMode] = useState(JSON.parse(localStorage.getItem("darkMode")) || false);
+
+    useEffect(() => {
+        localStorage.setItem("darkMode", JSON.stringify(darkMode));
+        if (darkMode) {
+            document.documentElement.classList.add("dark");
+        } else {
+            document.documentElement.classList.remove("dark");
+        }
+    }, [darkMode]);
+
     return (
         <header>
             <nav class="bg-white dark:bg-gray-900">
@@ -14,7 +26,7 @@ export const Header = () => {
                         <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">CodeBook</span>
                     </Link>
                     <div className="flex items-center ">
-                        <CiSettings className="cursor-pointer text-xl text-gray-700 dark:text-white mr-5 " />
+                        <CiSettings onClick={() => setDarkMode(!darkMode)} className="cursor-pointer text-xl text-gray-700 dark:text-white mr-5 " />
                         <FaSearch className="cursor-pointer text-xl text-gray-700 dark:text-white mr-5 " />
                         <a href="/cart" class="text-gray-700 dark:text-white mr-5 relative">
                             <IoCart className="cursor-pointer text-lg   text-gray-700 dark:text-white mr-5 " />
