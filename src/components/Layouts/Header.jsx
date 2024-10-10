@@ -5,8 +5,10 @@ import { FaSearch } from "react-icons/fa";
 import { IoCart } from "react-icons/io5";
 import { RxAvatar } from "react-icons/rx";
 import { useEffect, useState } from "react";
+import { Search } from "../Sections/Search";
 export const Header = () => {
     const [darkMode, setDarkMode] = useState(JSON.parse(localStorage.getItem("darkMode")) || false);
+    const [searchSection, setSearchSection] = useState(false);
 
     useEffect(() => {
         localStorage.setItem("darkMode", JSON.stringify(darkMode));
@@ -27,7 +29,7 @@ export const Header = () => {
                     </Link>
                     <div className="flex items-center ">
                         <CiSettings onClick={() => setDarkMode(!darkMode)} className="cursor-pointer text-xl text-gray-700 dark:text-white mr-5 " />
-                        <FaSearch className="cursor-pointer text-xl text-gray-700 dark:text-white mr-5 " />
+                        <FaSearch onClick={() => setSearchSection(!searchSection)} className="cursor-pointer text-xl text-gray-700 dark:text-white mr-5 " />
                         <a href="/cart" class="text-gray-700 dark:text-white mr-5 relative">
                             <IoCart className="cursor-pointer text-lg   text-gray-700 dark:text-white mr-5 " />
                             <span class="text-white text-sm absolute -top-2 left-2.5 bg-rose-500 px-1 rounded-full ">0</span>
@@ -36,6 +38,7 @@ export const Header = () => {
                     </div>
                 </div>
             </nav>
+            {searchSection && <Search setSearchSection={setSearchSection} />}
         </header >
     )
 }
