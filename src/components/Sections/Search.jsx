@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { IoSearchSharp } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 export const Search = ({ setSearchSection }) => {
@@ -9,6 +9,7 @@ export const Search = ({ setSearchSection }) => {
         setSearchSection(false)
         navigate(`/products?q=${searchRef.current.value}`)
     }
+
     return (
         <div className="mx-auto max-w-screen-xl p-2 my-5">
             <form className="flex items-center" onSubmit={handleSearch}>

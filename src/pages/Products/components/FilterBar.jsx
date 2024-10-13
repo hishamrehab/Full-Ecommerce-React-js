@@ -1,4 +1,7 @@
+import { useFilter } from "../../../context"
+
 export const FilterBar = ({ setShow }) => {
+    const { state, dispatch } = useFilter();
     return (
         <section className="filter">
             <div id="drawer-disable-body-scrolling" className={`fixed z-40 h-screen p-5 overflow-y-auto bg-white w-72 dark:bg-gray-800 transition-transhtmlForm left-0 top-0 transhtmlForm-none`} tabIndex="-1" aria-labelledby="drawer-disable-body-scrolling-label" aria-modal="true" role="dialog">
@@ -52,11 +55,13 @@ export const FilterBar = ({ setShow }) => {
                             </div>
                         </li>
                         <li className="mt-1 mb-5 px-1">
-                            <button type="button" className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-10 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">Clear Filter</button>
+                            <button onClick={() => dispatch({
+                                type: "CLEAR_FILTER"
+                            })} type="button" className="text - gray - 900 bg- white border border - gray - 300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-10 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">Clear Filter</button>
                         </li>
                     </ul>
                 </div>
             </div>
-        </section>
+        </section >
     )
 }
