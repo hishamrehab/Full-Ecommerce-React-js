@@ -1,11 +1,12 @@
-import React from 'react'
+import { CartEmpty } from "./components/CartEmpty"
+import { CartList } from "./components/CartList"
 
-const CartPage = () => {
+export const CartPage = () => {
+    const cartListLength = 0;
+
     return (
-        <div>
-            CartPage
-        </div>
+        <main>
+            {cartListLength ? <CartList /> : <CartEmpty />}
+        </main>
     )
 }
-
-export default CartPage

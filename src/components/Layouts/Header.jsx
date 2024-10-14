@@ -39,7 +39,7 @@ export const Header = () => {
                         <Link to="/cart" className="text-gray-700 dark:text-white mr-5 relative">
                             <IoCart className="cursor-pointer text-lg   text-gray-700 dark:text-white mr-5 " />
                             <span onClick={() => setDropdown(!dropdown)} className="text-white text-sm absolute -top-2 left-2.5 bg-rose-500 px-1 rounded-full ">0</span>
-                            {dropdown && (token ? <DropdownLoggedIn /> : <DropdownLoggedOut />)}
+                            {dropdown && (token ? <DropdownLoggedIn setDropdown={setDropdown} /> : <DropdownLoggedOut setDropdown={setDropdown} />)}
                         </Link>
                         <RxAvatar className="cursor-pointer text-xl text-gray-700 dark:text-white mr-5 " />
                     </div>

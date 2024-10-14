@@ -7,14 +7,19 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FilterProvider } from './context/FilterContext.jsx'
+import { CartProvider } from './context/CartContext.js'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Router>
-      <FilterProvider>
-        <ScrollToTop />
-        <ToastContainer closeButton={false} autoClose={3000} position={"bottom-right"} />
-        <App />
-      </FilterProvider>
+      <CartProvider>
+        <FilterProvider>
+          <ScrollToTop />
+          <ToastContainer closeButton={false} autoClose={3000} position={"bottom-right"} />
+          <App />
+        </FilterProvider>
+      </CartProvider>
+
+
     </Router>
   </StrictMode>,
 )
